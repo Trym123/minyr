@@ -77,7 +77,7 @@ func TestCalculateAverageFourthElementInCelsiusFile(t *testing.T) {
 
 func TestReadLastLineContains(t *testing.T) {
     filePath := "../table.csv"
-    expectedString := "Data er gyldig per 20.03.2023 (CC BY 4.0), Meteorologisk institutt (MET);endringen er gjort av Brage Kjemperud"
+    expectedString := "Data er gyldig per 20.03.2023 (CC BY 4.0), Meteorologisk institutt (MET);endringen er gjort av Trym Lundby"
 
     lastLine, err := ReadLastLine(filePath)
     if err != nil {

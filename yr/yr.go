@@ -153,7 +153,7 @@ func CalculateAverageFourthElement(filePath string) (float64, error) {
 }
 
 func ConvertCelsiusFileToFahrenheitFile() {
-	src, err := os.Open("table.csv")
+	src, err := os.Open("kjevik-temp-celsius-20220318-20230318.csv")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -223,7 +223,7 @@ func ReadLastLine(filePath string) (string, error) {
 	}
 
 	// Check if the last line contains the expected string
-	expectedString := "Data er gyldig per 20.03.2023 (CC BY 4.0), Meteorologisk institutt (MET);endringen er gjort av Brage Kjemperud"
+	expectedString := "Data er gyldig per 20.03.2023 (CC BY 4.0), Meteorologisk institutt (MET);endringen er gjort av Trym Lundby"
 	if strings.Contains(lastLine, expectedString) {
 		return lastLine, nil
 	}
