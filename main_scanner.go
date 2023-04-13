@@ -9,7 +9,7 @@ import (
 //	"github.com/Trym123/funtemps/conv"
 	)
 
-func main() {
+func scannerMain() {
 	src, err := os.Open("kjevik-temp-celsius-20220318-20230318.csv")
 	if err != nil {
 		log.Fatal(err)

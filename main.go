@@ -1,13 +1,12 @@
 package main
 
 import (
-	"fmt"
+	//"fmt"
 	//"io"
-	//"log"
-	//"os"
+	"log"
+	"os"
 	//"strings"
-	//"bufio"
-
+	"bufio"
 	"github.com/Trym123/minyr/yr"
 )
 
@@ -46,7 +45,7 @@ func main() {
 		log.Fatal(err)
 	}
 }
-*/
+/*
 func main() {
 	filePath := "table.csv"
 
@@ -58,3 +57,4 @@ func main() {
 
 	fmt.Printf("Average of fourth elements: %.2f\n", avg)
 }
+*/
