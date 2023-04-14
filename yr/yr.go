@@ -70,33 +70,35 @@ func CountLines(filename string) (int, error) {
 }
 
 func EditLastLine(filename string) error {
-	//Åpner filen for reading og writing
-	file, err := os.OpenFile(filename, os.O_RDWR, 0644)
-	if err != nil {
-		return fmt.Errorf("error opening file: %v", err)
-	}
-	defer file.Close()
-	//Finner slutten på filen
-	_, err = file.Seek(0, io.SeekEnd)
-	if err != nil {
-		return fmt.Errorf("error seeking to end of file: %v", err)
-	}
-	//Leser siste linje
-	reader := bufio.NewReader(file)
-	lastLine, err := reader.ReadString('\n')
-	if err != nil && err != io.EOF {
-		return fmt.Errorf("error reading last line: %v", err)
-	}
-	// Endrer den siste linjen ved å slette de siste 3 tegnene
-	newLastLine := lastLine[:len(lastLine)-3]
-	// Skriver den modifiserte siste linjen
-	newLastLine += "Made by Trym\n"
-	_, err = file.WriteAt([]byte(newLastLine), int64(len(newLastLine)-len(lastLine)))
-	if err != nil {
-		return fmt.Errorf("error writing modified last line: %v", err)
-	}
+    file, err := os.OpenFile(filename, os.O_RDWR, 0644)
+    if err != nil {
+        return err
+    }
+    defer file.Close()
 
-	return nil
+    buf := make([]byte, 3)
+    _, err = file.Seek(-3, io.SeekEnd)
+    if err != nil {
+        return err
+    }
+    _, err = file.Read(buf)
+    if err != nil {
+        return err
+    }
+    if string(buf) != ";;;" {
+        return errors.New("last line doesn't end with ';;;'")
+    }
+
+    _, err = file.Seek(-2, io.SeekEnd)
+    if err != nil {
+        return err
+    }
+    _, err = file.Write([]byte("endringen er gjort av Trym Lundby"))
+    if err != nil {
+        return err
+    }
+
+    return nil
 }
 
 func CalculateAverageFourthElement(filePath string) (float64, error) {
