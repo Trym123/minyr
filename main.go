@@ -40,11 +40,11 @@ func main() {
 						os.Remove("kjevik-temp-fahr-20220318-20230318.csv")
 						yr.ConvertCelsiusFileToFahrenheitFile()
 						yr.EditLastLine("kjevik-temp-fahr-20220318-20230318.csv")
-						fmt.Println("lmao")
+						fmt.Println("Ferdig å generere og konvertere.")
 					} else if inputConv == "n" {
 						yr.ConvertCelsiusFileToFahrenheitFile()
 						yr.EditLastLine("kjevik-temp-fahr-20220318-20230318.csv")
-						fmt.Println("lol")
+						fmt.Println("Ferdig å konvertere.")
 					} else {
 						fmt.Println("Venligst velg mellom 'j' for å genere en ny fil eller 'n' for å beholde eksisterende")
 					}
@@ -55,7 +55,7 @@ func main() {
 				fmt.Println("Nå har du konvertert fra celsius til fahrenheit")
 			}
 		} else if input == "average" {
-			fmt.Println("Finn ut gjennomsnittstemperaturen. Velg 'c' for å få gradene i celsius eller 'f' for å få de i fahrenheit")
+			fmt.Println("Finn ut gjennomsnittstemperaturen. Velg 'c' for å få gradene i celsius eller 'f' for å få de i fahrenheit eller 'q'/'exit' for å slutte programmet")
 			var inputAvg string
 			scannerAvg := bufio.NewScanner(os.Stdin)
 			for scannerAvg.Scan() {
@@ -80,11 +80,11 @@ func main() {
 					}
 					fmt.Printf("Average of fourth elements: %v\n", avg)
 				}else if inputAvg != "c" && inputAvg != "f"{
-					fmt.Println("Venligst velg mellom 'c' eller 'f'")
+					fmt.Println("Venligst velg mellom 'c', 'f' eller 'q'/'exit'")
 				}
 			}
 		} else {
-			fmt.Println("Venligst velg convert, average eller exit:")
+			fmt.Println("Venligst velg 'convert', 'average' eller 'q'/'exit:'")
 		}
 	}
 }
